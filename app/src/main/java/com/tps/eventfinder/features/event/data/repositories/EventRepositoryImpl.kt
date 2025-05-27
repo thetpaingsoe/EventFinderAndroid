@@ -17,7 +17,7 @@ class EventRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getEventDetail(id: String): Event {
-        return Event(id = "0", name = "", imageUrl = "");
+        return Event(id = "0", name = "", imageUrl = "")
 //        return api.getEventDetail(id = id, apiKey = API_KEY).toDomain()
     }
 
