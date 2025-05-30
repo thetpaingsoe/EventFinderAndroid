@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.tps.eventfinder.features.event.presentation.event_detail.EventDetailScreen
 import com.tps.eventfinder.features.event.presentation.event_list.EventListScreen
 import com.tps.eventfinder.features.event.presentation.event_list.EventListViewModel
 
@@ -17,6 +18,10 @@ fun AppNavGraph(navController: NavHostController) {
         composable("event_list") {
             val viewModel: EventListViewModel = hiltViewModel()
             EventListScreen(viewModel, navController)
+        }
+        composable("event_detail/{id}", arguments = listOf(navArgument("id") { type = NavType.StringType })) {
+            val id = it.arguments?.getString("id") ?: ""
+            EventDetailScreen(id)
         }
 
     }
